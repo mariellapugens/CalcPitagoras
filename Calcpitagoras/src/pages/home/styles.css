@@ -1,0 +1,76 @@
+styles.css
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.container h1 {
+  margin: 84px 0 24px;
+  text-align: center;
+  color: #e30072;
+  font-size: 50px;
+  font-family: "Roboto", sans-serif;
+
+}
+
+.container input {
+  width: 25%;
+  padding: 25px;
+ 
+   
+  background: #fdf0fd;
+  border-radius: 10px;
+  border-color: #ce0053;
+  border-style: solid;
+  vertical-align: middle;
+  margin: 20px;
+  font-size: 16px;
+}
+
+input::placeholder{
+    color: #ce0053;
+    
+}
+
+placeholder:focus{
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+
+.container button {
+  width: 15%;
+  padding: 24px;
+
+  font-weight: 700;
+
+  background: #e30072;
+  color: #fff;
+
+  border-radius: 5px;
+  margin: 12px 0 84px;
+  border: none;
+ 
+  cursor: pointer;
+  transition: filter 0.2s;
+
+  font-size: 20px;
+
+}
+
+.container button:hover {
+  filter: brightness(0.9);
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+ 
+    
+  }
+
