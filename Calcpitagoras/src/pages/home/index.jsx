@@ -58,7 +58,12 @@ function calc(catetoOposto, catetoAdjacente, hipotenusa) {
     var ladob = Math.pow(ladobaoquadrado,0.5) 
     console.log(ladob);
   }else{
-      console.log("não");
+      setValues({
+        catetoOposto: '',
+        catetoAdjacente: '',
+        hipotenusa: ''
+      });
+      alert("Não foi possível efetuar o calculo, insira os valores novamente");
   }
 }
 
@@ -67,9 +72,9 @@ function calc(catetoOposto, catetoAdjacente, hipotenusa) {
     <div className="container">
       <h1>Calculadora Pitágoras</h1>
       <form onSubmit={onSubmitHandler} className="form" id="form">
-        <input onChange={handleCatetoOpostoInputChange} className="co" id="co" placeholder="Valor do cateto oposto" min="1" type="number" value={values.catetoOposto}/>
-        <input onChange={handleCatetoAdjacenteInputChange} className="ca" id="ca" placeholder="Valor do cateto adjacente" min="1" type="number" value={values.catetoAdjacente} />
-        <input onChange={handleHipotenusaInputChange} className="hipotenusa" id="hp" placeholder="Valor da hipotenusa"   min="1" type="number" value={values.hipotenusa}/>
+        <input onChange={handleCatetoOpostoInputChange} className="co" id="co" placeholder="Valor do cateto oposto" min='1' type="number" value={values.catetoOposto}/>
+        <input onChange={handleCatetoAdjacenteInputChange} className="ca" id="ca" placeholder="Valor do cateto adjacente" min='1' type="number" value={values.catetoAdjacente} />
+        <input onChange={handleHipotenusaInputChange} className="hipotenusa" id="hp" placeholder="Valor da hipotenusa"   min='1' type="number" value={values.hipotenusa}/>
       <button type='submit'>Calcular</button>
     </form>
     
