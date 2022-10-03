@@ -51,22 +51,25 @@ function Home() {
   
 function calc(catetoOposto, catetoAdjacente, hipotenusa) {
 
-  var resultado = ''
 
-  if (hipotenusa === '1') {
+  if (hipotenusa === 'x') {
     var hipotenusa = Math.hypot(catetoAdjacente,catetoOposto)
     setResultadoCalculo("O resultado da hipotenusa é:") 
-    setResult(hipotenusa)  
-  } else if (catetoAdjacente === '1') {
-    var ladoaaoquadrado = Math.pow(hipotenusa,2) - Math.pow(catetoOposto,2)
-    var ladoA = Math.pow(ladoaaoquadrado,0.5)
+    setResult(hipotenusa)
+    console.log(catetoAdjacente);
+  } else if ('x' === catetoAdjacente && catetoOposto < hipotenusa) {
+    var catetoAdjacente = 0
+    var ladoAAoQuadrado = Math.pow(hipotenusa,2) - Math.pow(catetoOposto,2)
+    var ladoA = Math.pow(ladoAAoQuadrado,0.5)
     setResultadoCalculo("O resultado do cateto adjacente é:") 
     setResult(ladoA)
-  } else if (catetoOposto === '1') {
-    var ladobaoquadrado = Math.pow(hipotenusa,2) - Math.pow(catetoAdjacente,2)
-    var ladoB = Math.pow(ladobaoquadrado,0.5)
-    setResultadoCalculo('O resultado da hipotenusa é:')
+    console.log(hipotenusa);
+  } else if ('x' === catetoOposto && catetoAdjacente < hipotenusa) {
+    var ladoBAoQuadrado = Math.pow(hipotenusa,2) - Math.pow(catetoAdjacente,2)
+    var ladoB = Math.pow(ladoBAoQuadrado,0.5)
+    setResultadoCalculo('O resultado do cateto oposto é:')
     setResult(ladoB)
+    console.log(catetoAdjacente);
   }else{
       setValues({
         catetoOposto: '',
@@ -82,9 +85,9 @@ function calc(catetoOposto, catetoAdjacente, hipotenusa) {
     <div className="container">
       <h1>Calculadora Pitágoras</h1>
       {result === 0 && <form onSubmit={onSubmitHandler} className="form" id="form">
-        <input onChange={handleCatetoOpostoInputChange} className="co" id="co" placeholder="Valor do cateto oposto" min='1' type="number" value={values.catetoOposto}/>
-        <input onChange={handleCatetoAdjacenteInputChange} className="ca" id="ca" placeholder="Valor do cateto adjacente" min='1' type="number" value={values.catetoAdjacente} />
-        <input onChange={handleHipotenusaInputChange} className="hipotenusa" id="hp" placeholder="Valor da hipotenusa"   min='1' type="number" value={values.hipotenusa}/>
+        <input onChange={handleCatetoOpostoInputChange} className="co" id="co" placeholder="Valor do cateto oposto" min='1' type="text" value={values.catetoOposto}/>
+        <input onChange={handleCatetoAdjacenteInputChange} className="ca" id="ca" placeholder="Valor do cateto adjacente" min='1' type="text" value={values.catetoAdjacente} />
+        <input onChange={handleHipotenusaInputChange} className="hipotenusa" id="hp" placeholder="Valor da hipotenusa"   min='1' type="text" value={values.hipotenusa}/>
         <button type='submit'>Calcular</button>
      </form>}
       {result !== 0 &&
