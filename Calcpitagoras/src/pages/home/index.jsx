@@ -4,6 +4,8 @@ import './styles.css';
 
 function Home() {
 
+  const [resultadoCalculo, setResultadoCalculo] = useState('')
+
   const [result, setResult] = useState(0)
 
   const [values, setValues] = useState({
@@ -48,17 +50,23 @@ function Home() {
   }
   
 function calc(catetoOposto, catetoAdjacente, hipotenusa) {
+
+  var resultado = ''
+
   if (hipotenusa === '1') {
     var hipotenusa = Math.hypot(catetoAdjacente,catetoOposto)
+    setResultadoCalculo("O resultado da hipotenusa é:") 
     setResult(hipotenusa)  
   } else if (catetoAdjacente === '1') {
     var ladoaaoquadrado = Math.pow(hipotenusa,2) - Math.pow(catetoOposto,2)
-    var ladoa = Math.pow(ladoaaoquadrado,0.5) 
-    setResult(ladoa)
+    var ladoA = Math.pow(ladoaaoquadrado,0.5)
+    setResultadoCalculo("O resultado do cateto adjacente é:") 
+    setResult(ladoA)
   } else if (catetoOposto === '1') {
     var ladobaoquadrado = Math.pow(hipotenusa,2) - Math.pow(catetoAdjacente,2)
-    var ladob = Math.pow(ladobaoquadrado,0.5) 
-    setResult(ladob)
+    var ladoB = Math.pow(ladobaoquadrado,0.5)
+    setResultadoCalculo('O resultado da hipotenusa é:')
+    setResult(ladoB)
   }else{
       setValues({
         catetoOposto: '',
@@ -81,7 +89,7 @@ function calc(catetoOposto, catetoAdjacente, hipotenusa) {
      </form>}
       {result !== 0 &&
       <div>
-        <p>{result}</p>
+        <p>{resultadoCalculo} {result}</p>
           <button onClick={() => setResult(0)}>Calcular novamente</button>
       </div>
       }
