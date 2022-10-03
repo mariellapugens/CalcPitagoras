@@ -53,23 +53,23 @@ function calc(catetoOposto, catetoAdjacente, hipotenusa) {
 
 
   if (hipotenusa === 'x') {
-    var hipotenusa = Math.hypot(catetoAdjacente,catetoOposto)
-    setResultadoCalculo("O resultado da hipotenusa é:") 
-    setResult(hipotenusa)
-    console.log(catetoAdjacente);
+    var hipotenusaTratada = 0;
+    var hipotenusaTratada = Math.hypot(catetoAdjacente,catetoOposto)
+    setResultadoCalculo("O valor da hipotenusa é")
+    setResult(hipotenusaTratada)
   } else if ('x' === catetoAdjacente && catetoOposto < hipotenusa) {
-    var catetoAdjacente = 0
-    var ladoAAoQuadrado = Math.pow(hipotenusa,2) - Math.pow(catetoOposto,2)
-    var ladoA = Math.pow(ladoAAoQuadrado,0.5)
-    setResultadoCalculo("O resultado do cateto adjacente é:") 
+    var catetoAdjacenteTratado = 0;
+    var catetoAdjacenteTratado = Math.pow(hipotenusa,2) - Math.pow(catetoOposto,2)
+    var ladoA = Math.pow(catetoAdjacenteTratado,0.5)
+    setResultadoCalculo("O valor do cateto adjacente é") 
     setResult(ladoA)
-    console.log(hipotenusa);
   } else if ('x' === catetoOposto && catetoAdjacente < hipotenusa) {
-    var ladoBAoQuadrado = Math.pow(hipotenusa,2) - Math.pow(catetoAdjacente,2)
-    var ladoB = Math.pow(ladoBAoQuadrado,0.5)
-    setResultadoCalculo('O resultado do cateto oposto é:')
+    var catetoOpostoTratado = 0
+    console.log(catetoOpostoTratado);
+    var catetoOpostoTratado = Math.pow(hipotenusa,2) - Math.pow(catetoAdjacente,2)
+    var ladoB = Math.pow(catetoOpostoTratado,0.5)
+    setResultadoCalculo('O valor do cateto oposto é')
     setResult(ladoB)
-    console.log(catetoAdjacente);
   }else{
       setValues({
         catetoOposto: '',
@@ -91,9 +91,9 @@ function calc(catetoOposto, catetoAdjacente, hipotenusa) {
         <button type='submit'>Calcular</button>
      </form>}
       {result !== 0 &&
-      <div>
+      <div className='resultado'>
         <p>{resultadoCalculo} {result}</p>
-          <button onClick={() => setResult(0)}>Calcular novamente</button>
+          <button onClick={() => setResult(0)}s>Calcular novamente</button>
       </div>
       }
 

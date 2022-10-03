@@ -74,3 +74,13 @@ placeholder:focus{
     
   }
 
+.resultado {
+  margin: 84px 0 24px;
+  text-align: center;
+  color: #e30072;
+  font-size: 35px;
+  font-family: "Roboto", sans-serif;
+  
+
+
+}
