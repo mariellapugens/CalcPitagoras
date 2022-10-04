@@ -38,12 +38,23 @@ function Home() {
     }));
   };
 
+  const inputCheck = (input) => {
+    if (typeof input === 'string' && input === 'x' || input === 'X') {
+      return input.toLowerCase()
+    }else if (Number(input)) {
+      return input
+    }else {
+      alert("Insira um valor númerico ou x")
+    }
+  }
+
   const onSubmitHandler = (event) => {
-    event.preventDefault();
-    const catetoOposto = event.target.co.value
-    const catetoAdjacente = event.target.ca.value
-    const hipotenusa = event.target.hp.value
-   
+    event.preventDefault()
+
+    const  catetoOposto = inputCheck(event.target.co.value) 
+    console.log(catetoOposto)   
+    const catetoAdjacente = inputCheck(event.target.ca.value)
+    const hipotenusa = inputCheck(event.target.hp.value)   
  
     calc(catetoOposto, catetoAdjacente, hipotenusa)
 
@@ -52,19 +63,20 @@ function Home() {
 function calc(catetoOposto, catetoAdjacente, hipotenusa) {
 
 
+
   if (hipotenusa === 'x') {
-    var hipotenusaTratada = 0;
+    var hipotenusaTratada = "0";
     var hipotenusaTratada = Math.hypot(catetoAdjacente,catetoOposto)
     setResultadoCalculo("O valor da hipotenusa é")
     setResult(hipotenusaTratada)
-  } else if ('x' === catetoAdjacente && catetoOposto < hipotenusa) {
-    var catetoAdjacenteTratado = 0;
+  } else if (catetoAdjacente === 'x') {
+    var catetoAdjacenteTratado = "0";
     var catetoAdjacenteTratado = Math.pow(hipotenusa,2) - Math.pow(catetoOposto,2)
     var ladoA = Math.pow(catetoAdjacenteTratado,0.5)
     setResultadoCalculo("O valor do cateto adjacente é") 
     setResult(ladoA)
-  } else if ('x' === catetoOposto && catetoAdjacente < hipotenusa) {
-    var catetoOpostoTratado = 0
+  } else if ('x' === catetoOposto) {
+    var catetoOpostoTratado = "0"
     console.log(catetoOpostoTratado);
     var catetoOpostoTratado = Math.pow(hipotenusa,2) - Math.pow(catetoAdjacente,2)
     var ladoB = Math.pow(catetoOpostoTratado,0.5)
